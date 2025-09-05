@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function Main({ posts, onAddPost }) {
   return (
     <main>
@@ -7,12 +9,25 @@ function Main({ posts, onAddPost }) {
   );
 }
 
-export default Main
+export default Main;
 function Posts({ posts }) {
   return (
     <section>
       <List posts={posts} />
     </section>
+  );
+}
+
+function List({ posts }) {
+  return (
+    <ul>
+      {posts.map((post, i) => (
+        <li key={i}>
+          <h3>{post.title}</h3>
+          <p>{post.body}</p>
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -27,3 +42,19 @@ function FormAddPost({ onAddPost }) {
     setTitle("");
     setBody("");
   };
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Post title"
+      />
+      <textarea
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
+        placeholder="Post body"
+      />
+      <button>Add post</button>
+    </form>
+  );
+}

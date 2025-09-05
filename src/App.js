@@ -3,6 +3,7 @@ import { faker } from "@faker-js/faker";
 import Footer from "./Footer";
 import Archive from "./components/Archive";
 import Header from "./Header";
+import Main from "./Main";
 
 function createRandomPost() {
   return {
@@ -67,36 +68,6 @@ function App() {
 }
 
 
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Post title"
-      />
-      <textarea
-        value={body}
-        onChange={(e) => setBody(e.target.value)}
-        placeholder="Post body"
-      />
-      <button>Add post</button>
-    </form>
-  );
-}
-
-function List({ posts }) {
-  return (
-    <ul>
-      {posts.map((post, i) => (
-        <li key={i}>
-          <h3>{post.title}</h3>
-          <p>{post.body}</p>
-        </li>
-      ))}
-    </ul>
-  );
-}
 
 
 export default App;

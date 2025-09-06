@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import Results from "./components/Results";
 import SearchPosts from "./components/SearchPosts";
+import { PostContext } from "./App";
 
-function Header({ posts, onClearPosts, searchQuery, setSearchQuery }) {
+function Header() {
+  const { posts, onClearPosts } = useContext(PostContext);
+//   console.log(x);
   return (
     <header>
       <h1>
@@ -9,10 +13,7 @@ function Header({ posts, onClearPosts, searchQuery, setSearchQuery }) {
       </h1>
       <div>
         <Results posts={posts} />
-        <SearchPosts
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        />
+        <SearchPosts />
         <button onClick={onClearPosts}>Clear posts</button>
       </div>
     </header>

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { PostContext } from "./App";
+import { PostContext } from "./hooks/PostContext";
 
 function Main() {
   const { posts, onAddPost } = useContext(PostContext);

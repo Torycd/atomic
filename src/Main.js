@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
-import { PostContext } from "./hooks/PostContext";
+import { useState } from "react";
+import { usePosts } from "./hooks/PostContext";
 
 function Main() {
-  const { posts, onAddPost } = useContext(PostContext);
+  const { posts, onAddPost } = usePosts();
   return (
     <main>
       <FormAddPost onAddPost={onAddPost} />
